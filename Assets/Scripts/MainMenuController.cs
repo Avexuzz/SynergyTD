@@ -53,8 +53,14 @@ public class MainMenuController : MonoBehaviour
 
     public void OnConfirm()
     {
-        int width = (int)System.Convert.ToUInt32(startSetsPanel.transform.Find("WidthInputField").gameObject.GetComponent<InputField>().text);//resize field to min/max if outbounds
-        int height = (int)System.Convert.ToUInt32(startSetsPanel.transform.Find("HeightInputField").gameObject.GetComponent<InputField>().text);
+		int width = 16;
+		int height = 9;
+		if(startSetsPanel.transform.Find("WidthInputField").gameObject.GetComponent<InputField>().text != ""){
+			width = (int)System.Convert.ToUInt32(startSetsPanel.transform.Find("WidthInputField").gameObject.GetComponent<InputField>().text);//resize field to min/max if outbounds
+		}
+        if(startSetsPanel.transform.Find("HeightInputField").gameObject.GetComponent<InputField>().text != ""){
+			height = (int)System.Convert.ToUInt32(startSetsPanel.transform.Find("HeightInputField").gameObject.GetComponent<InputField>().text);
+		}
         if (width < 4)
         {
             width = 4;
